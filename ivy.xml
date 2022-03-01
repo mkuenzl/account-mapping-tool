@@ -10,6 +10,9 @@
         <dependency org="org.apache.poi" name="poi" rev="4.1.2" transitive="false"/>
         <!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml-schemas -->
         <dependency org="org.apache.poi" name="poi-ooxml-schemas" rev="4.1.2"/>
+        <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-text -->
+        <dependency org="org.apache.commons" name="commons-text" rev="1.9" transitive="false"/>
+
         <dependency org="commons-io" name="commons-io" rev="2.6"/>
 
         <dependency org="junit" name="junit" rev="4.13.2">
