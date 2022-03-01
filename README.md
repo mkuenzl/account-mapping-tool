@@ -1,2 +1,2 @@
 # account-mapping-tool
- Used to map accounts for the fucking BDO bullshit Apex mission.
+ Used to map accounts for the BDO bs Apex mission.
