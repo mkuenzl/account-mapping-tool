@@ -1,7 +1,6 @@
 package main.mapping.strategy;
 
-import main.mapping.distances.GeneralEditDistance;
-import main.mapping.distances.GeneralEditDistances;
+import org.apache.commons.text.similarity.LevenshteinDistance;
 
 import java.util.HashMap;
 import java.util.List;
@@ -15,16 +14,18 @@ public class LevenshteinMapping extends AMappingStrategy
 		int bestDistance = Integer.MAX_VALUE;
 		Map<String, String> closestMatch = new HashMap<>();
 		
-		GeneralEditDistance ed = GeneralEditDistances.getLevenshteinDistance(toFind);
-		
 		for (Map<String, String> entry : mappingTable)
 		{
 			String entryString = entry.get(searchField);
-			int edDistance = ed.getDistance(entryString, bestDistance);
+
+			LevenshteinDistance levenshteinDistance = new LevenshteinDistance(bestDistance);
+			Integer distance = levenshteinDistance.apply(toFind, entryString);
 			
-			if (edDistance < bestDistance)
+			// For some reason the algorithm return -1 sometimes.
+			if (distance < 0) continue;
+			if (distance < bestDistance)
 			{
-				bestDistance = edDistance;
+				bestDistance = distance;
 				closestMatch = entry;
 			}
 		}

@@ -18,7 +18,6 @@ public class TableManipulator
 	private HashMap<String, Integer> tableInformation = new HashMap<>();
 	private HashMap<String, Integer> header;
 	
-	
 	public void configure(String fileName, String sheetName, String tableName)
 	{
 		try (FileInputStream fis = new FileInputStream(fileName))
@@ -99,7 +98,6 @@ public class TableManipulator
 		try (FileOutputStream fileOutputStream = new FileOutputStream(fileName))
 		{
 			workbook.write(fileOutputStream);
-			workbook.close();
 		} catch (IOException e)
 		{
 			e.printStackTrace();
